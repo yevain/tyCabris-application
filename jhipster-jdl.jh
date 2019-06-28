@@ -1,0 +1,79 @@
+entity Chevre{
+    nom String required
+    matricule String
+	surnom String
+	naissance LocalDate
+	present Boolean
+}
+relationship OneToOne{
+	Chevre{pere} to Chevre{chevre(nom)}
+}
+relationship OneToOne{
+	Chevre{mere} to Chevre{chevre(nom)}
+}
+
+entity Parc{
+	//default id
+	nom String required
+}
+
+entity Evenement{
+	//default id
+	nom String required
+	occurence Integer
+}
+
+relationship OneToMany{
+	Evenement{suivant} to Evenement{evenement(nom)}
+}
+
+entity Poids{
+	//default id
+	valeur Float required
+	date LocalDate required
+}
+
+entity Taille{
+	//default id
+	valeur Float required
+	date LocalDate required
+}
+
+
+relationship OneToMany{
+	Chevre to Poids{chevre(nom) required}
+}
+
+relationship OneToMany{
+	Chevre to Taille{chevre(nom) required}
+}
+
+entity ParcChevre{
+	entree LocalDate required
+    sortie LocalDate 
+}
+
+entity EvenementChevre{
+	date LocalDate required
+}
+
+relationship OneToMany{
+	Parc to ParcChevre{parc(nom) required}
+}
+relationship OneToMany{
+	Chevre to ParcChevre{chevre(nom) required}
+}
+
+relationship OneToMany{
+	Evenement to EvenementChevre{evenement(nom) required}
+}
+
+relationship OneToMany{
+	Chevre to EvenementChevre{chevre(nom) required}
+}
+
+
+
+dto * with mapstruct
+service * with serviceImpl
+filter *

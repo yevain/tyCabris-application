@@ -1,0 +1,38 @@
+{
+    "name": "Poids",
+    "fields": [
+        {
+            "fieldName": "valeur",
+            "fieldType": "Float",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "chevre",
+            "otherEntityRelationshipName": "poids",
+            "relationshipValidateRules": "required",
+            "relationshipName": "chevre",
+            "otherEntityField": "nom"
+        }
+    ],
+    "changelogDate": "20190628112835",
+    "entityTableName": "poids",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

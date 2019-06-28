@@ -1,0 +1,46 @@
+{
+    "name": "Evenement",
+    "fields": [
+        {
+            "fieldName": "nom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "occurence",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "evenement",
+            "otherEntityRelationshipName": "evenement",
+            "relationshipName": "suivant"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "evenementChevre",
+            "otherEntityRelationshipName": "evenement",
+            "relationshipName": "evenementChevre"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "evenement",
+            "otherEntityRelationshipName": "suivant",
+            "relationshipName": "evenement",
+            "otherEntityField": "nom"
+        }
+    ],
+    "changelogDate": "20190628112834",
+    "entityTableName": "evenement",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

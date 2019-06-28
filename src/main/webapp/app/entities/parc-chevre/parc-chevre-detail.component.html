@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="parcChevre">
+            <h2><span>Parc Chevre</span> {{parcChevre.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Entree</span></dt>
+                <dd>
+                    <span>{{parcChevre.entree}}</span>
+                </dd>
+                <dt><span>Sortie</span></dt>
+                <dd>
+                    <span>{{parcChevre.sortie}}</span>
+                </dd>
+                <dt><span>Parc</span></dt>
+                <dd>
+                    <div *ngIf="parcChevre.parcId">
+                        <a [routerLink]="['/parc', parcChevre.parcId, 'view']">{{parcChevre.parcNom}}</a>
+                    </div>
+                </dd>
+                <dt><span>Chevre</span></dt>
+                <dd>
+                    <div *ngIf="parcChevre.chevreId">
+                        <a [routerLink]="['/chevre', parcChevre.chevreId, 'view']">{{parcChevre.chevreNom}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/parc-chevre', parcChevre.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

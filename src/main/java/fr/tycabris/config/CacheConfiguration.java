@@ -45,6 +45,25 @@ public class CacheConfiguration {
             createCache(cm, fr.tycabris.domain.User.class.getName() + ".authorities");
             createCache(cm, fr.tycabris.domain.PersistentToken.class.getName());
             createCache(cm, fr.tycabris.domain.User.class.getName() + ".persistentTokens");
+            createCache(cm, fr.tycabris.domain.Chevre.class.getName());
+            createCache(cm, fr.tycabris.domain.Chevre.class.getName() + ".parcChevres");
+            createCache(cm, fr.tycabris.domain.Parc.class.getName());
+            createCache(cm, fr.tycabris.domain.Parc.class.getName() + ".parcChevres");
+            createCache(cm, fr.tycabris.domain.ParcChevre.class.getName());
+            createCache(cm, fr.tycabris.domain.Chevre.class.getName() + ".evenementChevres");
+            createCache(cm, fr.tycabris.domain.Evenement.class.getName());
+            createCache(cm, fr.tycabris.domain.Evenement.class.getName() + ".evenementChevres");
+            createCache(cm, fr.tycabris.domain.Poids.class.getName());
+            createCache(cm, fr.tycabris.domain.Poids.class.getName() + ".chevres");
+            createCache(cm, fr.tycabris.domain.EvenementChevre.class.getName());
+            createCache(cm, fr.tycabris.domain.Taille.class.getName());
+            createCache(cm, fr.tycabris.domain.Taille.class.getName() + ".chevres");
+            createCache(cm, fr.tycabris.domain.Chevre.class.getName() + ".poids");
+            createCache(cm, fr.tycabris.domain.Chevre.class.getName() + ".tailles");
+            createCache(cm, fr.tycabris.domain.Evenement.class.getName() + ".suivants");
+            createCache(cm, fr.tycabris.domain.Chevre.class.getName() + ".peres");
+            createCache(cm, fr.tycabris.domain.Chevre.class.getName() + ".meres");
+            createCache(cm, fr.tycabris.domain.Chevre.class.getName() + ".chevres");
             // jhipster-needle-ehcache-add-entry
         };
     }

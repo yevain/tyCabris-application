@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity ParcChevre.
+    -->
+    <changeSet id="20190628112837-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="parc_id"
+                                 baseTableName="parc_chevre"
+                                 constraintName="fk_parc_chevre_parc_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="parc"/>
+
+        <addForeignKeyConstraint baseColumnNames="chevre_id"
+                                 baseTableName="parc_chevre"
+                                 constraintName="fk_parc_chevre_chevre_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="chevre"/>
+
+    </changeSet>
+</databaseChangeLog>

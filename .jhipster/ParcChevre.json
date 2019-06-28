@@ -1,0 +1,43 @@
+{
+    "name": "ParcChevre",
+    "fields": [
+        {
+            "fieldName": "entree",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "sortie",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "parc",
+            "otherEntityRelationshipName": "parcChevre",
+            "relationshipValidateRules": "required",
+            "relationshipName": "parc",
+            "otherEntityField": "nom"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "chevre",
+            "otherEntityRelationshipName": "parcChevre",
+            "relationshipValidateRules": "required",
+            "relationshipName": "chevre",
+            "otherEntityField": "nom"
+        }
+    ],
+    "changelogDate": "20190628112837",
+    "entityTableName": "parc_chevre",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,93 @@
+{
+    "name": "Chevre",
+    "fields": [
+        {
+            "fieldName": "nom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "matricule",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "surnom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "naissance",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "present",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "chevre",
+            "otherEntityRelationshipName": "chevre",
+            "relationshipName": "pere",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "chevre",
+            "otherEntityRelationshipName": "chevre",
+            "relationshipName": "mere",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "poids",
+            "otherEntityRelationshipName": "chevre",
+            "relationshipName": "poids"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "taille",
+            "otherEntityRelationshipName": "chevre",
+            "relationshipName": "taille"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "parcChevre",
+            "otherEntityRelationshipName": "chevre",
+            "relationshipName": "parcChevre"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "evenementChevre",
+            "otherEntityRelationshipName": "chevre",
+            "relationshipName": "evenementChevre"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "chevre",
+            "otherEntityRelationshipName": "pere",
+            "relationshipName": "chevre",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "chevre",
+            "otherEntityRelationshipName": "mere",
+            "relationshipName": "chevre",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190628112832",
+    "entityTableName": "chevre",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

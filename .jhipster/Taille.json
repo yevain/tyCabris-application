@@ -1,0 +1,38 @@
+{
+    "name": "Taille",
+    "fields": [
+        {
+            "fieldName": "valeur",
+            "fieldType": "Float",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "chevre",
+            "otherEntityRelationshipName": "taille",
+            "relationshipValidateRules": "required",
+            "relationshipName": "chevre",
+            "otherEntityField": "nom"
+        }
+    ],
+    "changelogDate": "20190628112836",
+    "entityTableName": "taille",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

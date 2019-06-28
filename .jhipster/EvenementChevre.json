@@ -1,0 +1,39 @@
+{
+    "name": "EvenementChevre",
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "evenement",
+            "otherEntityRelationshipName": "evenementChevre",
+            "relationshipValidateRules": "required",
+            "relationshipName": "evenement",
+            "otherEntityField": "nom"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "chevre",
+            "otherEntityRelationshipName": "evenementChevre",
+            "relationshipValidateRules": "required",
+            "relationshipName": "chevre",
+            "otherEntityField": "nom"
+        }
+    ],
+    "changelogDate": "20190628112838",
+    "entityTableName": "evenement_chevre",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

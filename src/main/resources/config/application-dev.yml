@@ -38,7 +38,7 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:mariadb://localhost:3306/tyCabrisApplication?useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
-    password:
+    password: srit123SRIT
     hikari:
       poolName: Hikari
       auto-commit: false

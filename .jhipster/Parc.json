@@ -1,0 +1,29 @@
+{
+    "name": "Parc",
+    "fields": [
+        {
+            "fieldName": "nom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "parcChevre",
+            "otherEntityRelationshipName": "parc",
+            "relationshipName": "parcChevre"
+        }
+    ],
+    "changelogDate": "20190628112833",
+    "entityTableName": "parc",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

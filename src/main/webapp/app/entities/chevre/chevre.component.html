@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span>Chevres</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-chevre" [routerLink]="['/chevre/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Chevre
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="chevres?.length === 0">
+        <span>No chevres found</span>
+    </div>
+    <div class="table-responsive" *ngIf="chevres?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Nom</span></th>
+            <th><span>Matricule</span></th>
+            <th><span>Surnom</span></th>
+            <th><span>Naissance</span></th>
+            <th><span>Present</span></th>
+            <th><span>Pere</span></th>
+            <th><span>Mere</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let chevre of chevres ;trackBy: trackId">
+                <td><a [routerLink]="['/chevre', chevre.id, 'view' ]">{{chevre.id}}</a></td>
+                <td>{{chevre.nom}}</td>
+                <td>{{chevre.matricule}}</td>
+                <td>{{chevre.surnom}}</td>
+                <td>{{chevre.naissance | date:'mediumDate'}}</td>
+                <td>{{chevre.present}}</td>
+                <td>
+                    <div *ngIf="chevre.pereId">
+                        <a [routerLink]="['../chevre', chevre.pereId , 'view' ]" >{{chevre.pereId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="chevre.mereId">
+                        <a [routerLink]="['../chevre', chevre.mereId , 'view' ]" >{{chevre.mereId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/chevre', chevre.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/chevre', chevre.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'chevre', { outlets: { popup: chevre.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

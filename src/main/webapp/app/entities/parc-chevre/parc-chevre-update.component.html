@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-parc-chevre-heading">Create or edit a Parc Chevre</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_entree">Entree</label>
+                    <div class="input-group">
+                        <input id="field_entree" type="text" class="form-control" name="entree" ngbDatepicker  #entreeDp="ngbDatepicker" formControlName="entree"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="entreeDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('entree').invalid && (editForm.get('entree').dirty || editForm.get('entree').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('entree').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_sortie">Sortie</label>
+                    <div class="input-group">
+                        <input id="field_sortie" type="text" class="form-control" name="sortie" ngbDatepicker  #sortieDp="ngbDatepicker" formControlName="sortie"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="sortieDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_parc">Parc</label>
+                    <select class="form-control" id="field_parc" name="parc" formControlName="parcId">
+                        <option *ngIf="!editForm.get('parcId').value" [ngValue]="null" selected></option>
+                        <option [ngValue]="parcOption.id" *ngFor="let parcOption of parcs; trackBy: trackParcById">{{parcOption.nom}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('parcId').invalid && (editForm.get('parcId').dirty || editForm.get('parcId').touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('parcId').errors.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_chevre">Chevre</label>
+                    <select class="form-control" id="field_chevre" name="chevre" formControlName="chevreId">
+                        <option *ngIf="!editForm.get('chevreId').value" [ngValue]="null" selected></option>
+                        <option [ngValue]="chevreOption.id" *ngFor="let chevreOption of chevres; trackBy: trackChevreById">{{chevreOption.nom}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('chevreId').invalid && (editForm.get('chevreId').dirty || editForm.get('chevreId').touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('chevreId').errors.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
